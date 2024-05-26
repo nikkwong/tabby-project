@@ -16,11 +16,10 @@ export default function ProfileProvider({ children }) {
       value.setPerson(p);
     },
     updatePerson: async (person: Person) => {
-      const p = await fetch(`/api/people?personId=${person.id}`, {
+      await fetch(`/api/people?personId=${person.id}`, {
         method: "POST",
         body: JSON.stringify(person),
       });
-      // value.setPerson(p);
     },
   };
   const actions = {
