@@ -6,6 +6,16 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --hue-1: 23;
+  --hue-2: 65;
+  --bg: hsl(var(--hue-1), 100%, 97%);
+  --bg-swish: hsl(var(--hue-1) 20.95% 19.8%);
+  --hue-1-primary: hsl(var(--hue-1), 39%, 20%);
+  --hue-1-secondary: hsl(var(--hue-1), 79%, 50%);
+  --hue-1-tertiary: hsl(var(--hue-1), 79%, 80%);
+  --hue-2-primary: hsl(var(--hue-2), 100%, 50%);
+  --hue-2-secondary: hsl(var(--hue-2), 50%, 80%);
+  --hue-2-tertiary: hsl(var(--hue-2), 40%, 30%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,17 +27,57 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--bg);
+  font-family: "Outfit", sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+@layer base {
+  html {
+    color: var(--hue-1-primary);
+  }
+}
+
+/* Colors */
+
+.hue-1-secondary {
+  color: var(--hue-1-secondary);
+}
+.hue-1-tertiary {
+  color: var(--hue-1-tertiary);
+}
+.hue-2-primary {
+  color: var(--hue-2-primary);
+}
+.hue-2-secondary {
+  color: var(--hue-2-secondary);
+}
+.hue-2-tertiary {
+  color: var(--hue-2-tertiary);
+}
+
+/* Custom styles */
+
+.bg-skew {
+  background: var(--bg-swish);
+  transform: skewY(8deg);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--hue-1-secondary);
+  font-family: "MuseoModerno", sans-serif;
+}
+
+.btn-secondary {
+  background: var(--hue-2-primary);
+  color: var(--hue-1-primary);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
